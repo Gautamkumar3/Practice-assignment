@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    
+        #login{
+            margin: auto;
+            width: 30%;
+            margin-top: 8%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 50px 30px;
+            background-color: white;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        input, button{
+            height: 30px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        button{
+            background-color: rgba(128, 128, 128, 0.211);
+            height: 40px;
+            color: rgba(0, 0, 0, 0.51);
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        span>a{
+            color: blue;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+     <div id="login">
+         <h1>Sign Up</h1>
+         <form  id="form">
+            <input type="name" id="name" placeholder="Full Name">
+            <br><br>
+            <input type="email" id="email" placeholder="Email">
+            <br><br>
+            <input type="password" id="password" placeholder="Password">
+            <br>
+            <p>By signing up, I accept the Masai School <a target="_blank" href="https://masaischool.com/terms">Terms of Service</a> and acknowledge the <a target="_blank" href="https://masaischool.com/privacy">Privacy Policy</a></p>
+            <button>Signup</button>
+         
+            <p>Already have an account? <span><a href="login.html">Sign In</a></span></p>
+        </form>
+
+     </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("#form").addEventListener("submit" , signUpData)
+
+    function signUpData(){
+        event.preventDefault();
+
+        signupObj={
+            Name : form.name.value,
+            Email : form.email.value,
+            Password:form.password.value
+        }
+
+        form.name.value="";
+        form.email.value="";
+        form.password.value="";
+    alert("Sign up Successful")
+        localStorage.setItem("signup" ,JSON.stringify(signupObj))
+        window.location.href="login.html"
+    }
+</script>

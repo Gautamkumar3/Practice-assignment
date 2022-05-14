@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment part</title>
+    <style>
+        #paymentform{
+            width: 20%;
+            background-color:rgb(47, 122, 186);
+            margin: auto;
+            padding: 30px;
+            margin-top: 100px;
+    
+        }
+             .submit{
+              width: 90%;
+              background-color: green;
+              color: white;
+              height: 28px;
+        }
+    </style>
+</head>
+<body>
+
+        <form id="paymentform">
+            <label for="">Card Number :</label>
+            <input type="number"  id="number" placeholder="card number">
+            <br><br>
+            <label for="">CVV :</label>
+            <input type="number" id="cvv"  placeholder="CVV">
+            <br><br>
+            <label for="">Expiry date :</label>
+            <input type="date"  id="date" placeholder="Expiry Date">
+            <br><br>
+            <label for="">Name :</label>
+            <input type="text" id="name"  placeholder="Name">
+            <br><br>
+            <input class="submit" type="submit">
+        </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("#paymentform").addEventListener("submit", checkdetails)
+
+    function checkdetails(){
+        event.preventDefault();
+
+        var obj={
+            Card_num : paymentform.number.value,
+            CVV : paymentform.cvv.value,
+            Date : paymentform.date.value,
+            Name : paymentform.name.value
+        }
+       
+
+         var data=JSON.parse(localStorage.getItem("details"))
+
+          if(data.Card_num==obj.Card_num && data.CVV==obj.CVV && data.Date==obj.Date && data.Name==obj.Name){
+              
+               window.location.href="otp.html"
+          }else{
+              alert("something is wrong")
+
+          }
+        
+       
+    }
+</script>
